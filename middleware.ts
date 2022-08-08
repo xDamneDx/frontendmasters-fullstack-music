@@ -4,12 +4,10 @@ const signedinPages = ["/", "/playlists", "/library"];
 
 export default function middleware(req) {
   if (signedinPages.find((p) => p === req.nextUrl.pathname)) {
-    const token = req.cookies.TRAX_ACCESS_TOKEN;
+    const token = req.cookies.get("TRAX_ACCESS_TOKEN");
 
     if (!token) {
-      const url = req.nextUrl.clone();
-      url.pathname = "/signin";
-      return NextResponse.redirect(url);
+      return NextResponse.rewrite(new URL("/signin", req.url));
     }
   }
 }
