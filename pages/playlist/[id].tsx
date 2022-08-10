@@ -3,6 +3,7 @@ import { validateToken } from "../../lib/auth";
 
 // Components:
 import GradientLayout from "../../components/gradientLayout";
+import SongsTable from "../../components/songsTable";
 
 const getBGColor = (id) => {
   const colors = [
@@ -31,7 +32,7 @@ const Playlist = ({ playlist }) => {
       description={`${playlist.songs.length} songs`}
       image={`https://picsum.photos/400?random=${playlist.id}`}
     >
-      <div>asd</div>
+      <SongsTable songs={playlist.songs} />
     </GradientLayout>
   );
 };
