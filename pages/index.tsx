@@ -15,7 +15,7 @@ const Home = ({ artists }) => {
       color="red"
       subtitle="profile"
       title={`${user?.firstName} ${user?.lastName}`}
-      description="10 public playlists"
+      description={`${user?.playlistsCount} public playlists`}
       image="https://dl.dropboxusercontent.com/s/bgiv0ssz3xpotz9/peep.png?dl=0"
       roundImage
     >
